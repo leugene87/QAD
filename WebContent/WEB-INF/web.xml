@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <servlet>
+    <servlet-name>Ass01Servlet</servlet-name>
+    <jsp-file>/index.jsp</jsp-file>
+    <init-param>
+      <param-name>driver</param-name>
+      <param-value>com.microsoft.sqlserver.jdbc.SQLServerDriver</param-value>
+    </init-param>
+    <init-param>
+      <param-name>url</param-name>
+      <param-value>jdbc:sqlserver://Beangrinder.bcit.ca</param-value>
+    </init-param>
+    <init-param>
+      <param-name>user</param-name>
+      <param-value>javastudent</param-value>
+    </init-param>
+    <init-param>
+      <param-name>pass</param-name>
+      <param-value>compjava</param-value>
+    </init-param>
+  </servlet>
+  <filter>
+    <filter-name>ConnectionAcces</filter-name>
+    <filter-class>
+      a00970495.ass1.util.filters.ConnectionAccesFilter
+    </filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>ConnectionAcces</filter-name>
+    <url-pattern>/quotes.jsp</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>ConnectionAcces</filter-name>
+    <url-pattern>/pass.jsp</url-pattern>
+  </filter-mapping>
+  <display-name>Assignment1</display-name>
+  <context-param>
+    <param-name>defOpen</param-name>
+    <param-value>1.10110</param-value>
+  </context-param>
+  <context-param>
+    <param-name>defHigh</param-name>
+    <param-value>1.10550</param-value>
+  </context-param>
+  <context-param>
+    <param-name>defLow</param-name>
+    <param-value>1.0022</param-value>
+  </context-param>
+  <context-param>
+    <param-name>defClose</param-name>
+    <param-value>1.1033</param-value>
+  </context-param>
+  <context-param>
+    <param-name>defVolume</param-name>
+    <param-value>3</param-value>
+  </context-param>
+  <servlet-mapping>
+    <servlet-name>Ass01Servlet</servlet-name>
+    <url-pattern>/Ass01_Servlet/*</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  
+  
+    <servlet>
+    <display-name>FileUploadServlet</display-name>
+    <servlet-name>FileUploadServlet</servlet-name>
+    <servlet-class>a00970495.ass1.FileUploadServlet</servlet-class>
+  </servlet>
+   
+  <servlet-mapping>
+    <servlet-name>FileUploadServlet</servlet-name>
+    <url-pattern>/uploadFile</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+</web-app>
